@@ -3,7 +3,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ContentType, Mess
 from piceye import Img_to_str
 from config import Settings_config, New_User
 
-
+print("status: Bot started!...")
 Settings_config().check_settings()
 try:
     bot = Bot(Settings_config().TOKEN_API())
