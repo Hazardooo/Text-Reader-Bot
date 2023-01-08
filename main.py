@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ContentType, Message
-from piceye import Img_to_str
+from piceye import ImgToStr
 from config import Settings_config, New_User
 
 print("status: Bot started!...")
@@ -8,11 +8,10 @@ Settings_config().check_settings()
 try:
     bot = Bot(Settings_config().TOKEN_API())
 except:
-    print("У вас нет токена!")
+    print("You have not inserted the token into the file config.txt!")
     exit(input("press Enter..."))
 dp = Dispatcher(bot)
-Lang_Pointer = Img_to_str()
-Lang_Pointer.lang_point(True)
+Lang_Pointer = ImgToStr()
 
 
 @dp.message_handler(commands=["start"])
@@ -24,7 +23,7 @@ async def encho(message: Message):
 async def re_return(message: Message):
     user = New_User(message.from_user.id)
     await message.photo[-1].download(destination_file=user.catalog()+'/image.png')
-    await message.answer(text=Lang_Pointer.recognition_text(user.catalog()+'/image.png', Lang_Pointer.flag))
+    await message.answer(text=Lang_Pointer.recognition_text(user.catalog()+'/image.png'))
     user.clear_catalog()
 
 

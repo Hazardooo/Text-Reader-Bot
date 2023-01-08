@@ -2,6 +2,8 @@ from os import path, mkdir, remove, listdir
 
 
 class New_User():
+    """The class is designed to create a new user folder to make it easier to accept images."""
+
     def __init__(self, user_id: str) -> str:
         self.user_id = str(user_id)
         self.way = path.abspath(__name__).replace(__name__, "")+'photos/'
@@ -21,6 +23,8 @@ class New_User():
 
 
 class Settings_config(New_User):
+    """The class is designed to read settings from config.txt file"""
+
     def __init__(self, user_id=None, token=True) -> str:
         super().__init__(user_id)
         self.token = token
