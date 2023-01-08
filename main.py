@@ -11,7 +11,7 @@ except:
     print("You have not inserted the token into the file config.txt!")
     exit(input("press Enter..."))
 dp = Dispatcher(bot)
-Lang_Pointer = ImgToStr()
+Lang_Pointer = ImgToStr(Settings_config().path_way())
 
 
 @dp.message_handler(commands=["start"])

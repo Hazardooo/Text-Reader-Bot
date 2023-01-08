@@ -35,8 +35,15 @@ class Settings_config(New_User):
                 f.write("Hi my friend! This is the bot settings!!!\n")
                 f.write("Please do not change this file because I decided not to complicate the code and made the bot setup positional on the lines of this file\n")
                 f.write("\nBOT TOKEN API: ")
+                f.write("\n\nThe path to the installed tesseract.exe: ")
 
     def TOKEN_API(self):
         with open("config.txt", "r", encoding='UTF-8') as f:
             self.token = f.readlines()[3].split()[-1]
             return self.token
+
+    def path_way (self):
+        with open("config.txt", "r", encoding='UTF-8') as f:
+            self.pth_way = f.readlines()[5].split()[6:]
+            return " ".join(self.pth_way)
+        
