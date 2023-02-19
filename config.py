@@ -1,7 +1,7 @@
 from os import path, mkdir, remove, listdir
 
 
-class New_User():
+class NewUser():
     """The class is designed to create a new user folder to make it easier to accept images."""
 
     def __init__(self, user_id: str) -> str:
@@ -22,7 +22,7 @@ class New_User():
             remove(path.join(self.user_image, file))
 
 
-class Settings_config(New_User):
+class SettingsConfig(NewUser):
     """The class is designed to read settings from config.txt file"""
 
     def __init__(self, user_id=None, token=True) -> str:
